@@ -32,20 +32,35 @@ class Person(BaseModel):
     first_name: str = Field(
         ..., 
         min_length=1,
-        max_length=50
+        max_length=50,
+        example ="FAcundo"
         )
     last_name: str = Field(
         ..., 
         min_length=1,
-        max_length=50
+        max_length=50,
+        example="Torres"
         )
     age: int = Field(
         ..., 
         gt=0,
-        le=115
+        le=115,
+        example =21
         )
-    hail_color: Optional[HairColor] = Field(default=None)
-    is_married: Optional[bool] = Field(default=None)
+    hail_color: Optional[HairColor] = Field(default=None, example="black")
+    is_married: Optional[bool] = Field(default=None, example=False)
+
+   # class Config:
+    #    schema_extra = {
+   #         "example": {
+   #             "first_name": "Facudno",
+    #            "last_name": "Garcia",
+   #             "age": 21,
+   #             "hair_color": "black",
+   #             "is_married": "true"
+   #         }
+    #    } 
+
 
 
 
@@ -89,6 +104,7 @@ def show_person(
 
 
 #validations request body
+# no funciona elf astdoc con dos body request para el caso del schema_extra
 @app.put('/person/{person_id}')
 def update_person(
     person_id: int = Path(
