@@ -87,9 +87,15 @@ def show_person(
         min_length=1,
         max_length=50,
         title ="Person name",
-        description= "Description title name"
+        description= "Description title name",
+        example="Rocio"
     ),
-    age: int = Query(...)
+    age: int = Query(
+        ...,
+        title="Person Age",
+        description="This is a person age. It's required",
+        example=25
+    )
 ):
     return {name: age}
 
@@ -98,7 +104,11 @@ def show_person(
 
 @app.get('/person/detail/{person_id}')
 def show_person(
-    person_id: int = Path(..., gt=0) #mayor a cero
+    person_id: int = Path(
+        ..., 
+        gt=0,
+        example= 123
+    ) #mayor a cero
 ):
     return {person_id: "It exists!"}
 
