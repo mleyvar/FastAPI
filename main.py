@@ -29,7 +29,7 @@ class Location(BaseModel):
     country: str
 
 class Employee(BaseModel):
-    id: int = Field(
+    id_employee_unique: int = Field(
         ..., 
         gt=0,
         le=115,
@@ -41,7 +41,7 @@ class Employee(BaseModel):
         max_length=50,
         example ="FAcundo"
         )
-    image: str = Field(
+    image_photo_employee_work: str = Field(
         ..., 
         min_length=1,
         max_length=150,
@@ -183,16 +183,16 @@ def get_employee():
     list = [] 
   
     # appending instances to list 
-    list.append( Employee(id=1,name='Juan Perez', image='https://employee.setcoding.com/images/man.jpg') )
-    list.append( Employee(id=2,name='María Lopez', image= 'https://employee.setcoding.com/images/woman.jpg') )
-    list.append( Employee(id=3,name='Mario Rosas',  image='https://employee.setcoding.com/images/man.jpg') )
-    list.append( Employee(id=4,name='Guadalupe Rojas',  image='https://employee.setcoding.com/images/woman.jpg') )
-    list.append( Employee(id=5,name='Miguel Castro',  image='https://employee.setcoding.com/images/man.jpg') )
-    list.append( Employee(id=6,name='Raquel Martinez ',  image='https://employee.setcoding.com/images/woman.jpg') )
-    list.append( Employee(id=7,name='Sergio de Dulce',  image='https://employee.setcoding.com/images/man.jpg') )
-    list.append( Employee(id=8,name='Dulce Adriana',  image='https://employee.setcoding.com/images/woman.jpg') )
-    list.append( Employee(id=9,name='Alejandro Villanueva',  image='https://employee.setcoding.com/images/man.jpg') )
-    list.append( Employee(id=10,name='Patricia Drako',  image='https://employee.setcoding.com/images/woman.jpg') )
+    list.append( Employee(id_employee_unique=1,name='Juan Perez', image_photo_employee_work='https://employee.setcoding.com/images/man.jpg') )
+    list.append( Employee(id_employee_unique=2,name='María Lopez', image_photo_employee_work= 'https://employee.setcoding.com/images/woman.jpg') )
+    list.append( Employee(id_employee_unique=3,name='Mario Rosas',  image_photo_employee_work='https://employee.setcoding.com/images/man.jpg') )
+    list.append( Employee(id_employee_unique=4,name='Guadalupe Rojas',  image_photo_employee_work='https://employee.setcoding.com/images/woman.jpg') )
+    list.append( Employee(id_employee_unique=5,name='Miguel Castro',  image_photo_employee_work='https://employee.setcoding.com/images/man.jpg') )
+    list.append( Employee(id_employee_unique=6,name='Raquel Martinez ',  image_photo_employee_work='https://employee.setcoding.com/images/woman.jpg') )
+    list.append( Employee(id_employee_unique=7,name='Sergio de Dulce',  image_photo_employee_work='https://employee.setcoding.com/images/man.jpg') )
+    list.append( Employee(id_employee_unique=8,name='Dulce Adriana',  image_photo_employee_work='https://employee.setcoding.com/images/woman.jpg') )
+    list.append( Employee(id_employee_unique=9,name='Alejandro Villanueva',  image_photo_employee_work='https://employee.setcoding.com/images/man.jpg') )
+    list.append( Employee(id_employee_unique=10,name='Patricia Drako',  image_photo_employee_work='https://employee.setcoding.com/images/woman.jpg') )
 
    # results = list.dict()
     return {"employee":list}
