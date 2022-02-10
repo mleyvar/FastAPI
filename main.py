@@ -108,6 +108,28 @@ class PersonOut(BaseModel):
 
 
 
+class Product(BaseModel):
+    id_product_unique: int = Field(
+        ..., 
+        gt=0,
+        le=115,
+        example =21
+        )
+    name: str = Field(
+        ..., 
+        min_length=1,
+        max_length=50,
+        example ="FAcundo"
+        )
+    price: float
+    discount: float
+    image_photo_product_work: str = Field(
+        ..., 
+        min_length=1,
+        max_length=150,
+        example ="/images/man.jpeg"
+        )
+    stock: int            
 
 
 
@@ -196,3 +218,25 @@ def get_employee():
 
    # results = list.dict()
     return {"employee":list}
+
+
+  
+@app.get('/product')
+def get_product():
+
+    list = [] 
+  
+    # appending instances to list 
+    list.append( Product(id_product_unique=1,name='Producto 1', price=10.0, discount=0.0, image_photo_product_work='https://employee.setcoding.com/images/prod1.jpg', stock=100) )
+    list.append( Product(id_product_unique=2,name='Producto 2', price=10.0, discount=0.0, image_photo_product_work='https://employee.setcoding.com/images/prod2.jpg', stock=100) )
+    list.append( Product(id_product_unique=3,name='Producto 3', price=10.0, discount=0.0, image_photo_product_work='https://employee.setcoding.com/images/prod3.jpg', stock=100) )
+    list.append( Product(id_product_unique=4,name='Producto 4', price=10.0, discount=0.0, image_photo_product_work='https://employee.setcoding.com/images/prod1.jpg', stock=100) )
+    list.append( Product(id_product_unique=5,name='Producto 5', price=10.0, discount=0.0, image_photo_product_work='https://employee.setcoding.com/images/prod2.jpg', stock=100) )
+    list.append( Product(id_product_unique=6,name='Producto 6', price=10.0, discount=0.0, image_photo_product_work='https://employee.setcoding.com/images/prod3.jpg', stock=100) )
+    list.append( Product(id_product_unique=7,name='Producto 7', price=10.0, discount=0.0, image_photo_product_work='https://employee.setcoding.com/images/prod1.jpg', stock=100) )
+    list.append( Product(id_product_unique=8,name='Producto 8', price=10.0, discount=0.0, image_photo_product_work='https://employee.setcoding.com/images/prod2.jpg', stock=100) )
+    list.append( Product(id_product_unique=9,name='Producto 9', price=10.0, discount=0.0, image_photo_product_work='https://employee.setcoding.com/images/prod3.jpg', stock=100) )
+    list.append( Product(id_product_unique=10,name='Producto 10', price=10.0, discount=0.0, image_photo_product_work='https://employee.setcoding.com/images/prod1.jpg', stock=100) )
+
+   # results = list.dict()
+    return {"product":list}  
