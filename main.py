@@ -183,16 +183,16 @@ def get_employee():
     list = [] 
   
     # appending instances to list 
-    list.append( Employee(id=1,name='Juan Perez', image='/images/man.jpeg') )
-    list.append( Employee(id=2,name='María Lopez', image= '/images/woman.jpeg') )
-    list.append( Employee(id=3,name='Mario Rosas',  image='/images/man.jpeg') )
-    list.append( Employee(id=4,name='Guadalupe Rojas',  image='/images/woman.jpeg') )
-    list.append( Employee(id=5,name='Miguel Castro',  image='/images/man.jpeg') )
-    list.append( Employee(id=6,name='Raquel Martinez ',  image='/images/woman.jpeg') )
-    list.append( Employee(id=7,name='Sergio de Dulce',  image='/images/man.jpeg') )
-    list.append( Employee(id=8,name='Dulce Adriana',  image='/images/woman.jpeg') )
-    list.append( Employee(id=9,name='Alejandro Villanueva',  image='/images/man.jpeg') )
-    list.append( Employee(id=10,name='Patricia Drako',  image='/images/woman.jpeg') )
+    list.append( Employee(id=1,name='Juan Perez', image='https://employee.setcoding.com/images/man.jpg') )
+    list.append( Employee(id=2,name='María Lopez', image= 'https://employee.setcoding.com/images/woman.jpg') )
+    list.append( Employee(id=3,name='Mario Rosas',  image='https://employee.setcoding.com/images/man.jpg') )
+    list.append( Employee(id=4,name='Guadalupe Rojas',  image='https://employee.setcoding.com/images/woman.jpg') )
+    list.append( Employee(id=5,name='Miguel Castro',  image='https://employee.setcoding.com/images/man.jpg') )
+    list.append( Employee(id=6,name='Raquel Martinez ',  image='https://employee.setcoding.com/images/woman.jpg') )
+    list.append( Employee(id=7,name='Sergio de Dulce',  image='https://employee.setcoding.com/images/man.jpg') )
+    list.append( Employee(id=8,name='Dulce Adriana',  image='https://employee.setcoding.com/images/woman.jpg') )
+    list.append( Employee(id=9,name='Alejandro Villanueva',  image='https://employee.setcoding.com/images/man.jpg') )
+    list.append( Employee(id=10,name='Patricia Drako',  image='https://employee.setcoding.com/images/woman.jpg') )
 
    # results = list.dict()
     return {"employee":list}
