@@ -45,7 +45,7 @@ class Employee(BaseModel):
         ..., 
         min_length=1,
         max_length=150,
-        example ="/images/man.jpeg"
+        example ="/images/"
         )        
 
 class Person(BaseModel):
@@ -176,23 +176,3 @@ def update_person(
     return results
 
 
-
-@app.get('/employee')
-def get_employee():
-
-    list = [] 
-  
-    # appending instances to list 
-    list.append( Employee(1,'Juan Perez', '/images/man.jpeg') )
-    list.append( Employee(2,'María Lopez', '/images/woman.jpeg') )
-    list.append( Employee(3,'Mario Rosas', '/images/man.jpeg') )
-    list.append( Employee(4,'Guadalupe Rojas', '/images/woman.jpeg') )
-    list.append( Employee(5,'Miguel Castro', '/images/man.jpeg') )
-    list.append( Employee(6,'Raquel Martinez ', '/images/woman.jpeg') )
-    list.append( Employee(7,'Sergio de Dulce', '/images/man.jpeg') )
-    list.append( Employee(8,'Dulce Adriana', '/images/woman.jpeg') )
-    list.append( Employee(9,'Alejandro Villanueva', '/images/man.jpeg') )
-    list.append( Employee(10,'Patricia Drako', '/images/woman.jpeg') )
-
-    results = list.dict()
-    return results
