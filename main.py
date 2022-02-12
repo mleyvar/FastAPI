@@ -10,7 +10,7 @@ from pydantic import Field
 #FastAPI
 from fastapi import FastAPI
 from fastapi import status
-from fastapi import Body, Query, Path
+from fastapi import Body, Query, Path, Form
 
 
 app = FastAPI()
@@ -110,6 +110,10 @@ class Product(BaseModel):
 
 class PersonOut(PersonBase):
     pass
+
+class LoginOut(BaseModel):
+    username: str = Field(..., max_length=20, example= "Miguel2022")
+    message: str = Field(default= "Login succesfully")
 
 
 @app.get(
@@ -240,3 +244,15 @@ def get_product():
 
    # results = list.dict()
     return {"product":list}  
+
+
+@app.post(
+    path='/login',
+    response_model=LoginOut,
+    status_code=status.HTTP_200_OK
+)
+def login(
+    username: str = Form(...),
+    password: str = Form(...)
+):
+    return LoginOut(username=username)
