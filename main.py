@@ -9,6 +9,7 @@ from pydantic import Field
 
 #FastAPI
 from fastapi import FastAPI
+from fastapi import status
 from fastapi import Body, Query, Path
 
 
@@ -111,21 +112,30 @@ class PersonOut(PersonBase):
     pass
 
 
-@app.get('/')
+@app.get(
+    path='/',
+    status_code=status.HTTP_200_OK
+    )
 def home():
     return {"Hello": "World"}
 
 
 #Request and Response
 
-@app.post('/person/new', response_model=PersonOut)
+@app.post(
+    path='/person/new', 
+    response_model=PersonOut,
+    status_code=status.HTTP_201_CREATED
+    )
 def create_person(person: Person = Body(...)):
     return person
 
-
 #validations query parameters
 
-@app.get('/person/detail')
+@app.get(
+    path='/person/detail',
+    status_code=status.HTTP_200_OK
+    )
 def show_person(
     name: Optional[str] = Query(
         None,
@@ -147,7 +157,10 @@ def show_person(
 
 #validations path parameters
 
-@app.get('/person/detail/{person_id}')
+@app.get(
+    path='/person/detail/{person_id}',
+    status_code=status.HTTP_200_OK
+    )
 def show_person(
     person_id: int = Path(
         ..., 
@@ -160,7 +173,10 @@ def show_person(
 
 #validations request body
 # no funciona elf astdoc con dos body request para el caso del schema_extra
-@app.put('/person/{person_id}')
+@app.put(
+    path='/person/{person_id}',
+    status_code=status.HTTP_200_OK
+    )
 def update_person(
     person_id: int = Path(
         ..., 
@@ -177,7 +193,10 @@ def update_person(
 
 
 
-@app.get('/employee')
+@app.get(
+    path='/employee',
+    status_code=status.HTTP_200_OK
+    )
 def get_employee():
 
     list = [] 
@@ -199,7 +218,10 @@ def get_employee():
 
 
   
-@app.get('/product')
+@app.get(
+    path='/product',
+    status_code=status.HTTP_200_OK
+    )
 def get_product():
 
     list = [] 
