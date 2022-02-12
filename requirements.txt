@@ -11,3 +11,6 @@ typing_extensions==4.0.1
 uvicorn==0.16.0
 python-multipart==0.0.5 
 six==1.16.0
+email-validator>=1.0.3
+dnspython>=1.15.0
+idna>=2.0.0
