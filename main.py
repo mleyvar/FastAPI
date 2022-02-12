@@ -48,7 +48,7 @@ class Employee(BaseModel):
         example ="/images/man.jpeg"
         )        
 
-class Person(BaseModel):
+class PersonBase(BaseModel):
     first_name: str = Field(
         ..., 
         min_length=1,
@@ -69,58 +69,32 @@ class Person(BaseModel):
         )
     hail_color: Optional[HairColor] = Field(default=None, example="black")
     is_married: Optional[bool] = Field(default=None, example=False)
-    password: str = Field(
+
+class Person(PersonBase):
+   password: str = Field(
         ...,
         min_length=8
     )
-
-class PersonOut(BaseModel):
-    first_name: str = Field(
-        ..., 
-        min_length=1,
-        max_length=50,
-        example ="FAcundo"
-        )
-    last_name: str = Field(
-        ..., 
-        min_length=1,
-        max_length=50,
-        example="Torres"
-        )
-    age: int = Field(
-        ..., 
-        gt=0,
-        le=115,
-        example =21
-        )
-    hail_color: Optional[HairColor] = Field(default=None, example="black")
-    is_married: Optional[bool] = Field(default=None, example=False)
-   # class Config:
-    #    schema_extra = {
-   #         "example": {
-   #             "first_name": "Facudno",
-    #            "last_name": "Garcia",
-   #             "age": 21,
-   #             "hair_color": "black",
-   #             "is_married": "true"
-   #         }
-    #    } 
-
-
+    
+# class Config:
+#    schema_extra = {
+#         "example": {
+#             "first_name": "Facudno",
+#            "last_name": "Garcia",
+#             "age": 21,
+#             "hair_color": "black",
+#             "is_married": "true"
+#         }
+#    } 
 
 class Product(BaseModel):
-    id_product_unique: int = Field(
-        ..., 
-        gt=0,
-        le=115,
-        example =21
-        )
+    id_product_unique: int = Field(..., gt=0, le=115, example =21 )
     name: str = Field(
         ..., 
         min_length=1,
         max_length=50,
         example ="FAcundo"
-        )
+    )
     price: float
     discount: float
     image_photo_product_work: str = Field(
@@ -131,6 +105,10 @@ class Product(BaseModel):
         )
     stock: int            
 
+
+
+class PersonOut(PersonBase):
+    pass
 
 
 @app.get('/')
